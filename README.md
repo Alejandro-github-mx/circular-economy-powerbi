@@ -8,7 +8,7 @@
 
 ---
 
-## 📋 Project Overview
+## Project Overview
 
 This project presents an interactive business intelligence dashboard built in **Power BI Service (online)** to analyze circular economy practices across 10 Latin American and European countries. The dataset covers 2,000 company-level observations spanning 2019–2024, with 24 variables measuring waste recovery, environmental impact, financial performance, and circular economy strategies.
 
@@ -16,7 +16,7 @@ This dashboard was developed as part of doctoral research in sustainability and 
 
 ---
 
-## 🎯 Research Questions
+## Research Questions
 
 1. Which circular economy strategy is most commonly adopted across sectors?
 2. Do certified companies (ISO 14001, EMAS, B Corp) achieve higher ROI than non-certified ones?
@@ -26,7 +26,7 @@ This dashboard was developed as part of doctoral research in sustainability and 
 
 ---
 
-## 🔍 Key Findings
+## Key Findings
 
 | # | Finding |
 |---|---------|
@@ -38,7 +38,7 @@ This dashboard was developed as part of doctoral research in sustainability and 
 
 ---
 
-## 📊 Dashboard Structure
+## Dashboard Structure
 
 ```
 ┌─────────────────────────────────────────────────────────┐
@@ -56,7 +56,7 @@ This dashboard was developed as part of doctoral research in sustainability and 
 
 ---
 
-## 🗄️ Dataset Description
+## Dataset Description
 
 **File:** `data/economia_circular_dataset.csv`
 **Rows:** 2,000 | **Columns:** 24 | **Period:** 2019–2024
@@ -91,7 +91,7 @@ This dashboard was developed as part of doctoral research in sustainability and 
 
 ---
 
-## 🧮 DAX Measures
+## DAX Measures
 
 See full documentation in [`dax/medidas.dax`](dax/medidas.dax)
 
@@ -106,7 +106,7 @@ Empresas_Con_Cert          = CALCULATE(COUNTROWS(economia_circular_dataset),
 
 ---
 
-## 🛠️ Tools & Technology
+## Tools & Technology
 
 - **Power BI Service** (online) — Microsoft Fabric / Kozminski University license
 - **Power Query (M language)** — data transformation and calculated columns
@@ -115,7 +115,7 @@ Empresas_Con_Cert          = CALCULATE(COUNTROWS(economia_circular_dataset),
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```
 circular-economy-powerbi/
@@ -131,7 +131,7 @@ circular-economy-powerbi/
 
 ---
 
-## 🔗 Academic Context
+## Academic Context
 
 This project applies Business Intelligence methods to circular economy research, an emerging field at the intersection of industrial ecology, sustainability management, and data science. The dashboard enables exploratory analysis of:
 
@@ -141,10 +141,9 @@ This project applies Business Intelligence methods to circular economy research,
 
 ---
 
-## 👤 Author
+## Author
 
-**Alejandro** | Doctoral Researcher  
-Kozminski University, Warsaw  
+**AlejandroGR** | Doctoral Researcher    
 *Sustainability · Circular Economy · Business Intelligence*
 
 ---
