@@ -1,0 +1,78 @@
+// ============================================================
+// DAX MEASURES — Circular Economy Dashboard
+// Power BI Service | Kozminski University Doctoral Project
+// ============================================================
+
+
+// ------------------------------------------------------------
+// KPI 1 — Average Waste Recovery Rate
+// Shows the mean recovery rate (%) across all filtered records.
+// Used in: KPI Card, Line Chart (trend)
+// ------------------------------------------------------------
+Tasa_Recuperación_Promedio =
+    AVERAGE(economia_circular_dataset[Tasa_Recuperación_Pct])
+
+
+// ------------------------------------------------------------
+// KPI 2 — Total CO2 Emissions Avoided
+// Aggregates all CO2 equivalent tonnes avoided through
+// circular economy practices in the current filter context.
+// Used in: KPI Card, Scatter Chart (bubble size)
+// ------------------------------------------------------------
+CO2_Total_Evitado =
+    SUM(economia_circular_dataset[CO2_Evitado_TonCO2eq])
+
+
+// ------------------------------------------------------------
+// KPI 3 — Average Return on Investment
+// Mean ROI (%) across companies in the current filter context.
+// Used in: KPI Card, Bar Chart (by sector)
+// ------------------------------------------------------------
+ROI_Promedio =
+    AVERAGE(economia_circular_dataset[ROI_Pct])
+
+
+// ------------------------------------------------------------
+// KPI 4 — Average Circularity Index
+// Composite index (1–10 scale) measuring overall circularity
+// performance per company record.
+// Used in: KPI Card
+// ------------------------------------------------------------
+Índice_Circularidad_Medio =
+    AVERAGE(economia_circular_dataset[Índice_Circularidad])
+
+
+// ------------------------------------------------------------
+// KPI 5 — Companies With Environmental Certification
+// Count of records where the company holds at least one
+// environmental certification (ISO 14001, EMAS, B Corp, etc.)
+// Used in: KPI Card, conditional analysis
+// ------------------------------------------------------------
+Empresas_Con_Cert =
+    CALCULATE(
+        COUNTROWS(economia_circular_dataset),
+        economia_circular_dataset[Certificación] <> "Ninguna"
+    )
+
+
+// ============================================================
+// OPTIONAL ADVANCED MEASURES (for future iterations)
+// ============================================================
+
+
+// Certification Premium — difference in ROI between certified
+// and non-certified companies in current filter context
+// ------------------------------------------------------------
+// Certificación_Premium =
+//     CALCULATE([ROI_Promedio], economia_circular_dataset[Certificación] <> "Ninguna")
+//     - CALCULATE([ROI_Promedio], economia_circular_dataset[Certificación] = "Ninguna")
+
+
+// Recovery Rate YoY Change — year-over-year delta
+// Requires a Date table for proper time intelligence
+// ------------------------------------------------------------
+// Tasa_Recuperación_YoY =
+//     VAR CurrentYear = [Tasa_Recuperación_Promedio]
+//     VAR PriorYear = CALCULATE([Tasa_Recuperación_Promedio],
+//                         SAMEPERIODLASTYEAR(economia_circular_dataset[Fecha]))
+//     RETURN DIVIDE(CurrentYear - PriorYear, PriorYear, BLANK())
